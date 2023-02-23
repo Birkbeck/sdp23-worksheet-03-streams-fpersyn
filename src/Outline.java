@@ -24,8 +24,8 @@ public class Outline {
   // question; the point here is to make use of a method reference.
   public static void question2() {
     List<String> words = getList();
-    System.out.println("2: ");
-    // YOUR CODE
+    System.out.println("Q2: ");
+    words.stream().forEach(System.out::println);
   }
 
   // For each of the following lambda expressions (see Question 5 in Worksheet 2),
@@ -120,6 +120,6 @@ public class Outline {
 
   public static void main(String... args) { // varargs alternative to String[]
     question1();
-
+    question2();
   }
 }

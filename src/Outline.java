@@ -197,9 +197,8 @@ public class Outline {
     List<Integer> numbers2 = List.of(3, 4);
     System.out.println("Q13:");
     List<List<Integer>> combinations = numbers1.stream()
-            .flatMap(i -> numbers2.stream()
-                    .map(j -> List.of(i, j))
-            ).collect(Collectors.toList());
+            .flatMap(i -> numbers2.stream().map(j -> List.of(i, j)))
+            .toList();
     System.out.println(combinations);
   }
 
@@ -211,11 +210,22 @@ public class Outline {
     System.out.println("Q13:");
     Predicate<List<Integer>> sumDivisibleByThree = ls -> ls.stream().mapToInt(Integer::intValue).sum() % 3 == 0;
     List<List<Integer>> validCombinations = numbers1.stream()
-            .flatMap(i -> numbers2.stream()
-                    .map(j -> List.of(i, j))
-            ).filter(sumDivisibleByThree)
-          .toList();
+            .flatMap(i -> numbers2.stream().map(j -> List.of(i, j)))
+            .filter(sumDivisibleByThree)
+            .toList();
     System.out.println(validCombinations);
+  }
+
+  // Provide three ways to use streams to compute the sum of a list of numbers.
+  public static void question15() {
+    List<Integer> numbers = List.of(1, 2, 3);
+    System.out.println("Q14:");
+    Integer option1 = numbers.stream().reduce(0, (a, b) -> a + b);
+    Optional<Integer> option2 = numbers.stream().reduce(Integer::sum);
+    int option3 = numbers.stream().mapToInt(Integer::intValue).sum();
+    System.out.println(option1);
+    System.out.println(option2.get());
+    System.out.println(option3);
   }
 
   public static void main(String... args) { // varargs alternative to String[]
@@ -233,5 +243,6 @@ public class Outline {
     question12();
     question13();
     question14();
+    question15();
   }
 }

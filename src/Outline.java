@@ -182,11 +182,28 @@ public class Outline {
     System.out.println(dishCount.get());
   }
 
+  // Given a list of numbers, print out the list of the squares of each number.
+  // For example, given [1, 2, 3, 4, 5] you should print [1, 4, 9, 16, 25].
   public static void question12() {
     List<Integer> numbers = List.of(1, 2, 3, 4, 5);
     System.out.println("Q12:");
     List<Integer> numbersSquared = numbers.stream().map(i -> (int) Math.pow(i, 2)).toList();
     System.out.println(numbersSquared);
+  }
+
+  // Given two lists of numbers, print out all pairs of numbers.
+  // For example, given a list [1, 2, 3] and a list [3, 4]
+  // you should print: [[1, 3], [1, 4], [2, 3], [2, 4], [3, 3], [3, 4]].
+  // For simplicity, you can represent each pair as a list with two elements.
+  public static void question13() {
+    List<Integer> numbers1 = List.of(1, 2, 3);
+    List<Integer> numbers2 = List.of(3, 4);
+    System.out.println("Q13:");
+    List<List<Integer>> combinations = numbers1.stream()
+            .flatMap(i -> numbers2.stream()
+                    .map(j -> List.of(i, j))
+            ).collect(Collectors.toList());
+    System.out.println(combinations);
   }
 
   public static void main(String... args) { // varargs alternative to String[]
@@ -202,5 +219,6 @@ public class Outline {
     question10();
     question11();
     question12();
+    question13();
   }
 }

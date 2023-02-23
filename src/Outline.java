@@ -158,7 +158,9 @@ public class Outline {
   public static void question9() {
     List<String> words = getList();
     System.out.println("Q9:");
-    // YOUR CODE
+    Optional<String> result = words.stream()
+            .reduce((a, b) -> a.toUpperCase() + "," + b.toUpperCase());
+    System.out.println(result.get());
   }
 
   // CONTINUE WITH THE REST OF THE QUESTIONS
@@ -172,5 +174,6 @@ public class Outline {
     question6();
     question7();
     question8();
+    question9();
   }
 }

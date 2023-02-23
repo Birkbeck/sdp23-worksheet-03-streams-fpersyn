@@ -163,7 +163,15 @@ public class Outline {
     System.out.println(result.get());
   }
 
-  // CONTINUE WITH THE REST OF THE QUESTIONS
+  // Use streams to filter the first two meat dishes.
+  public static void question10() {
+    List<Dish> menu = Dish.getMenu();
+    System.out.println("Q10:");
+    List<Dish> meatDishes = menu.stream()
+            .filter(d -> d.type().equals(Dish.Type.MEAT))
+            .toList();
+    System.out.println(meatDishes);
+  }
 
   public static void main(String... args) { // varargs alternative to String[]
     question1();
@@ -175,5 +183,6 @@ public class Outline {
     question7();
     question8();
     question9();
+    question10();
   }
 }

@@ -128,7 +128,10 @@ public class Outline {
   public static void question7() {
     List<String> words = getList();
     System.out.println("Q7:");
-    // YOUR CODE
+    Optional<String> result = words.stream()
+            .map(String::toUpperCase)
+            .reduce((a, b) -> a + b);
+    System.out.println(result.get());
   }
 
 
@@ -163,5 +166,6 @@ public class Outline {
     question4();
     question5();
     question6();
+    question7();
   }
 }

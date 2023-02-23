@@ -1,6 +1,8 @@
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -83,8 +85,21 @@ public class Outline {
 
   public static void question5() {
     List<String> words = getList();
-    System.out.println("5a:");
-    // YOUR CODE
+    System.out.println("Q5:");
+    // Result1
+    Optional<String> result1 = words.stream()
+            .map(String::toUpperCase)
+            .filter(s -> s.length() < 4)
+            .filter(s -> s.contains("E"))
+            .findFirst();
+    System.out.println("result1 = " + result1.get());
+    // Result2
+    Optional<String> result2 = words.stream()
+            .map(String::toUpperCase)
+            .filter(s -> s.length() < 4)
+            .filter(s -> s.contains("Q"))
+            .findFirst();
+    System.out.println("result2 = " + result2.get());
   }
 
 
@@ -141,5 +156,6 @@ public class Outline {
     question2();
     question3();
     question4();
+    question5();
   }
 }

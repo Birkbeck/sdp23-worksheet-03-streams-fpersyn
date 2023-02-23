@@ -38,8 +38,15 @@ public class Outline {
 
   public static void question3() {
     List<String> words = getList();
-    System.out.println("3:");
-    // YOUR CODE
+    System.out.println("Q3:");
+    // Extract lists
+    List<String> shortWords = words.stream().filter(s -> s.length() < 4).collect(Collectors.toList());
+    List<String> wordsContainingB = words.stream().filter(s -> s.contains("b")).collect(Collectors.toList());
+    List<String> wordsOfEvenLength = words.stream().filter(s -> (s.length() % 2) == 0).collect(Collectors.toList());
+    // Print lists
+    System.out.println(shortWords);
+    System.out.println(wordsContainingB);
+    System.out.println(wordsOfEvenLength);
   }
 
 
@@ -121,5 +128,6 @@ public class Outline {
   public static void main(String... args) { // varargs alternative to String[]
     question1();
     question2();
+    question3();
   }
 }

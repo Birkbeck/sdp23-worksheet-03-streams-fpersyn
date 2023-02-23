@@ -4,6 +4,7 @@ import java.util.OptionalInt;
 import java.util.Random;
 import java.util.function.*;
 import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
 
 
@@ -219,13 +220,47 @@ public class Outline {
   // Provide three ways to use streams to compute the sum of a list of numbers.
   public static void question15() {
     List<Integer> numbers = List.of(1, 2, 3);
-    System.out.println("Q14:");
+    System.out.println("Q15:");
     Integer option1 = numbers.stream().reduce(0, (a, b) -> a + b);
     Optional<Integer> option2 = numbers.stream().reduce(Integer::sum);
     int option3 = numbers.stream().mapToInt(Integer::intValue).sum();
     System.out.println(option1);
     System.out.println(option2.get());
     System.out.println(option3);
+  }
+
+  // Write a static method that produces a List of a specified length of random numbers:
+  public static List<Double> randomNumberList(int n) {
+    DoubleStream stream = DoubleStream.generate(() -> { return (double) (Math.random() * 10000); } );
+    return stream.limit(n).boxed().toList();
+  }
+
+  public static void question16() {
+    System.out.println("Q16:");
+    List<Double> nums = randomNumberList(5);
+    System.out.println(nums);
+  }
+
+  // Write a static method that produces a List of numbers that go in order by a step size.
+  public static void question17() {
+    System.out.println("Q17:");
+    // TODO
+//    List<Integer> nums = orderedNumberList(50, 5, someSize);
+//    System.out.println(nums);
+  }
+
+  // Rewrite one of the solutions from Question 15 so that it can be executed in parallel;
+  // verify that you get the same answer as for the sequential code.
+  public static void question18() {
+    System.out.println("Q18:");
+    // TODO
+  }
+
+  // Now, use streams to compute the product of some doubles. Show that the serial and
+  // parallel versions do not always result in the same answer.
+  public static void question19() {
+    System.out.println("Q19:");
+    // TODO
   }
 
   public static void main(String... args) { // varargs alternative to String[]
@@ -244,5 +279,6 @@ public class Outline {
     question13();
     question14();
     question15();
+    question16();
   }
 }

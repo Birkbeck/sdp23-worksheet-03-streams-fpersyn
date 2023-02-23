@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.Random;
 import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
@@ -173,6 +174,14 @@ public class Outline {
     System.out.println(meatDishes);
   }
 
+  // Count the number of dishes in a stream using the map and reduce methods.
+  public static void question11() {
+    List<Dish> menu = Dish.getMenu();
+    System.out.println("Q11:");
+    Optional<Integer> dishCount = menu.stream().map(d -> 1).reduce(Integer::sum);
+    System.out.println(dishCount.get());
+  }
+
   public static void main(String... args) { // varargs alternative to String[]
     question1();
     question2();
@@ -184,5 +193,6 @@ public class Outline {
     question8();
     question9();
     question10();
+    question11();
   }
 }

@@ -2,10 +2,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.Random;
-import java.util.function.BiFunction;
-import java.util.function.BinaryOperator;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.function.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -206,6 +203,21 @@ public class Outline {
     System.out.println(combinations);
   }
 
+  // Extend the previous example to return only pairs whose sum is divisible by 3.
+  // For example, [2, 4] and [3, 3] are valid.
+  public static void question14() {
+    List<Integer> numbers1 = List.of(1, 2, 3);
+    List<Integer> numbers2 = List.of(3, 4);
+    System.out.println("Q13:");
+    Predicate<List<Integer>> sumDivisibleByThree = ls -> ls.stream().mapToInt(Integer::intValue).sum() % 3 == 0;
+    List<List<Integer>> validCombinations = numbers1.stream()
+            .flatMap(i -> numbers2.stream()
+                    .map(j -> List.of(i, j))
+            ).filter(sumDivisibleByThree)
+          .toList();
+    System.out.println(validCombinations);
+  }
+
   public static void main(String... args) { // varargs alternative to String[]
     question1();
     question2();
@@ -220,5 +232,6 @@ public class Outline {
     question11();
     question12();
     question13();
+    question14();
   }
 }

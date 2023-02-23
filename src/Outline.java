@@ -182,6 +182,13 @@ public class Outline {
     System.out.println(dishCount.get());
   }
 
+  public static void question12() {
+    List<Integer> numbers = List.of(1, 2, 3, 4, 5);
+    System.out.println("Q12:");
+    List<Integer> numbersSquared = numbers.stream().map(i -> (int) Math.pow(i, 2)).toList();
+    System.out.println(numbersSquared);
+  }
+
   public static void main(String... args) { // varargs alternative to String[]
     question1();
     question2();
@@ -194,5 +201,6 @@ public class Outline {
     question9();
     question10();
     question11();
+    question12();
   }
 }

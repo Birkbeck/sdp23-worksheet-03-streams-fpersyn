@@ -1,6 +1,8 @@
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
+import java.util.function.BiFunction;
+import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -143,7 +145,9 @@ public class Outline {
   public static void question8() {
     List<String> words = getList();
     System.out.println("Q8:");
-    // YOUR CODE
+    Optional<String> result = words.stream()
+            .reduce((a, b) -> a.toUpperCase() + b.toUpperCase());
+    System.out.println(result.get());
   }
 
   // (*) Produce a String that is all the words concatenated together, but
@@ -167,5 +171,6 @@ public class Outline {
     question5();
     question6();
     question7();
+    question8();
   }
 }

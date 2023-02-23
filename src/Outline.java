@@ -110,8 +110,13 @@ public class Outline {
 
   public static void question6() {
     List<String> words = getList();
-    System.out.println("6:");
-    // YOUR CODE
+    System.out.println("Q6:");
+    Optional<String> result1 = words.stream()
+            .map(String::toUpperCase)
+            .peek(System.out::println)  // print each item
+            .filter(s -> s.length() < 4)
+            .filter(s -> s.contains("E"))
+            .findFirst();
   }
 
   // (*) Produce a single String that is the result of concatenating the
@@ -122,7 +127,7 @@ public class Outline {
 
   public static void question7() {
     List<String> words = getList();
-    System.out.println("7:");
+    System.out.println("Q7:");
     // YOUR CODE
   }
 
@@ -134,7 +139,7 @@ public class Outline {
 
   public static void question8() {
     List<String> words = getList();
-    System.out.println("8:");
+    System.out.println("Q8:");
     // YOUR CODE
   }
 
@@ -145,7 +150,7 @@ public class Outline {
 
   public static void question9() {
     List<String> words = getList();
-    System.out.println("9:");
+    System.out.println("Q9:");
     // YOUR CODE
   }
 
@@ -157,5 +162,6 @@ public class Outline {
     question3();
     question4();
     question5();
+    question6();
   }
 }

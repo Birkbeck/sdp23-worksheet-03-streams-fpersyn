@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.Random;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -60,8 +61,18 @@ public class Outline {
 
   public static void question4() {
     List<String> words = getList();
-    System.out.println("4:");
-    // YOUR CODE
+    System.out.println("Q4:");
+    // Functions
+    Function<String, String> addExclamation = s -> s + "!";
+    Function<String, String> replaceIWithEye = s -> s.replace("i", "eye");
+    // Extract lists
+    List<String> exclamationWords = words.stream().map(addExclamation).collect(Collectors.toList());
+    List<String> aussieWords = words.stream().map(replaceIWithEye).collect(Collectors.toList());
+    List<String> uppercaseWords = words.stream().map(String::toUpperCase).collect(Collectors.toList());
+    // Print lists
+    System.out.println(exclamationWords);
+    System.out.println(aussieWords);
+    System.out.println(uppercaseWords);
   }
 
 
@@ -129,5 +140,6 @@ public class Outline {
     question1();
     question2();
     question3();
+    question4();
   }
 }

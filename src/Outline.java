@@ -257,7 +257,9 @@ public class Outline {
   // verify that you get the same answer as for the sequential code.
   public static void question18() {
     System.out.println("Q18:");
-    // TODO
+    List<Integer> numbers = List.of(1, 2, 3);
+    Integer option1 = numbers.parallelStream().reduce(0, (a, b) -> a + b, (a, b) -> a + b);
+    System.out.println(option1);
   }
 
   // Now, use streams to compute the product of some doubles. Show that the serial and
@@ -285,5 +287,6 @@ public class Outline {
     question15();
     question16();
     question17();
+    question18();
   }
 }

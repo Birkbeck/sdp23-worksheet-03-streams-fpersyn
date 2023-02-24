@@ -1,11 +1,9 @@
 import java.util.List;
 import java.util.Optional;
-import java.util.OptionalInt;
-import java.util.Random;
 import java.util.function.*;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
-import java.util.stream.Stream;
+import java.util.stream.IntStream;
 
 
 public class Outline {
@@ -241,12 +239,18 @@ public class Outline {
     System.out.println(nums);
   }
 
+  public static List<Integer> orderedNumberList(Integer start, Integer stepsize, Integer n) {
+    return IntStream.iterate(start, x -> x + stepsize)
+            .takeWhile(x -> x < start + (n * stepsize))
+            .boxed().toList();
+//             .forEach(System.out::println);
+  }
+
   // Write a static method that produces a List of numbers that go in order by a step size.
   public static void question17() {
     System.out.println("Q17:");
-    // TODO
-//    List<Integer> nums = orderedNumberList(50, 5, someSize);
-//    System.out.println(nums);
+    List<Integer> nums = orderedNumberList(50, 5, 10);
+    System.out.println(nums);
   }
 
   // Rewrite one of the solutions from Question 15 so that it can be executed in parallel;
@@ -280,5 +284,6 @@ public class Outline {
     question14();
     question15();
     question16();
+    question17();
   }
 }

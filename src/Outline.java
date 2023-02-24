@@ -266,7 +266,12 @@ public class Outline {
   // parallel versions do not always result in the same answer.
   public static void question19() {
     System.out.println("Q19:");
-    // TODO
+    List<Double> doubles = randomNumberList(20);
+    Optional<Double> productSequential = doubles.stream().reduce((a, b) -> a * b);
+    Optional<Double> productParallel = doubles.parallelStream().reduce((a, b) -> a * b);
+    System.out.println("* sequential: " + productSequential.get());
+    System.out.println("* parallel: " + productParallel.get());
+    // Product is associative - hence differences in order won't affect the result in a parallel stream.
   }
 
   public static void main(String... args) { // varargs alternative to String[]
@@ -288,5 +293,6 @@ public class Outline {
     question16();
     question17();
     question18();
+    question19();
   }
 }
